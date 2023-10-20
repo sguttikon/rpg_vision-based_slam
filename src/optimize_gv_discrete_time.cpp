@@ -184,9 +184,9 @@ int main(int argc, char** argv)
     const std::string alignment_dir = config["alignment_dir"].as<std::string>();
     
     std::string trace_dir = config["full_batch_optimization_dir"].as<std::string>();
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/discrete_time";
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
 
     const std::string dataset_fn = config["dataset"].as<std::string>();
 
