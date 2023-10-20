@@ -47,6 +47,7 @@ set(USE_OPENMP_DEFAULT OFF)
 
 # assume libstdc++
 set(STD_CXX_FS stdc++fs)
+link_libraries(stdc++fs)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   set(LINUX_CLANG 1)
