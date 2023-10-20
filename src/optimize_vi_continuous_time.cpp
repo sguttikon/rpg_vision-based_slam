@@ -28,7 +28,7 @@ t_imu = t_cam + t_cam_imu_offset
 #include <chrono>
 #include <ctime>
 #include <iostream>
-#include <filesystem>
+#include <experimental/filesystem>
 
 #include "spline/bspline_so3r3.h"
 #include "util/colmap_utils.h"
@@ -255,13 +255,13 @@ int main(int argc, char** argv)
     "/order_" + std::to_string(order) + "/dt_" + std::to_string(spline_knots_dt_ms) + "_ms/spline_knots.txt";
  
     std::string trace_dir = config["full_batch_optimization_dir"].as<std::string>();
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/continuous_time";
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/order_" + std::to_string(order);
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/dt_" + std::to_string(spline_knots_dt_ms) + "_ms";
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
 
     const std::string dataset_fn = config["dataset"].as<std::string>();
 

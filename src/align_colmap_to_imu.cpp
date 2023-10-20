@@ -28,7 +28,7 @@ t_imu = t_cam + t_cam_imu_offset
 
 #include <fstream>
 #include <iostream>
-#include <filesystem>
+#include <experimental/filesystem>
 
 #include "discrete_time_estimator/estimator.h"
 #include "util/assert.h"
@@ -96,7 +96,7 @@ int main(int argc, char** argv)
     const std::string colmap_dir = config["colmap_dir"].as<std::string>();
     
     std::string trace_dir = config["result_dir"].as<std::string>();
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
 
     const std::string dataset_fn = config["dataset"].as<std::string>();
 

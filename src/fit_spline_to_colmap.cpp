@@ -26,7 +26,7 @@ t_imu = t_cam + t_cam_imu_offset
 */
 
 #include <iostream>
-#include <filesystem>
+#include <experimental/filesystem>
 
 #include <yaml-cpp/yaml.h>
 
@@ -80,9 +80,9 @@ int main(int argc, char** argv)
 
     const std::string colmap_fn = config["colmap_fn"].as<std::string>();
     std::string colmap_spline_dir = config["colmap_spline_dir"].as<std::string>();
-    std::filesystem::create_directory(colmap_spline_dir);
+    std::experimental::filesystem::create_directory(colmap_spline_dir);
     colmap_spline_dir = colmap_spline_dir + "/colmap_fitted_spline";
-    std::filesystem::create_directory(colmap_spline_dir);
+    std::experimental::filesystem::create_directory(colmap_spline_dir);
 
     const double colmap_start_t = config["start_t"].as<double>();
     const double colmap_end_t = config["end_t"].as<double>();
@@ -92,11 +92,11 @@ int main(int argc, char** argv)
     int dt_ms = spline_params.control_nodes_dt_s * 1e3;
 
     std::string trace_dir = colmap_spline_dir;
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/order_" + std::to_string(order);
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/dt_" + std::to_string(dt_ms) + "_ms";
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
 
     std::cout << "+-+-+-+-+- Files +-+-+-+-+-\n";
     std::cout << "colmap_fn: " << colmap_fn << "\n";

@@ -27,7 +27,7 @@ t_imu = t_cam + t_cam_imu_offset
 
 #include <iostream>
 #include <math.h>
-#include <filesystem>
+#include <experimental/filesystem>
 
 #include <yaml-cpp/yaml.h>
 
@@ -105,11 +105,11 @@ int main(int argc, char** argv)
     const std::string spline_fn = config["colmap_spline_dir"].as<std::string>() + 
     "/order_" + std::to_string(order) + "/dt_" + std::to_string(spline_knots_dt_ms) + "_ms/spline_knots.txt";
     std::string trace_dir = config["spline_global_ref_alignment_dir"].as<std::string>();
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/order_" + std::to_string(order);
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
     trace_dir = trace_dir + "/dt_" + std::to_string(spline_knots_dt_ms) + "_ms";
-    std::filesystem::create_directory(trace_dir);
+    std::experimental::filesystem::create_directory(trace_dir);
 
     SplineParameters spline_params;
     spline_params.loadFromYaml(config);
